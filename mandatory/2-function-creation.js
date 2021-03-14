@@ -5,7 +5,16 @@ Write a function that:
 - removes any forward slashes (/) in the strings
 - makes the string all lowercase
 */
-function tidyUpString(strArr) {}
+function tidyUpString(strArr) {
+  var modifiedArray = strArr.map(tidy);
+
+  function tidy(str) {
+    var newString = str.trim().toLowerCase().replace("/", "");
+    return newString;
+  }
+  console.log(modifiedArray);
+  return modifiedArray;
+}
 
 /*
 Complete the function to check if the variable `num` satisfies the following requirements:
@@ -15,7 +24,13 @@ Complete the function to check if the variable `num` satisfies the following req
 Tip: use logical operators
 */
 
-function validate(num) {}
+function validate(num) {
+  if (num <= 100 && typeof num === "number" && num % 2 === 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 /* 
 Write a function that returns a copy of the given array arr, but with the element at the given index, index removed.
@@ -23,7 +38,15 @@ The function must NOT change the original array, arr.
 */
 
 function remove(arr, index) {
-  return; // complete this statement
+  var neArr = [];
+  for (var i = 0; i < arr.length; i++) {
+    if (i < index) {
+      neArr[i] = arr[i];
+    } else if (i > index) {
+      neArr[i - 1] = arr[i];
+    }
+  }
+  return neArr; // complete this statement
 }
 
 /*
@@ -34,7 +57,22 @@ Write a function that:
 - numbers greater 100 must be replaced with 100
 */
 
-function formatPercentage(arr) {}
+function formatPercentage(arr) {
+  var newAJ = arr.map(percent);
+
+  function percent(num) {
+    var maxValue;
+    if (num > 100) {
+      maxValue = 100;
+    } else {
+      maxValue = num;
+    }
+    var percy = +maxValue.toFixed(2);
+    percy = percy + "%";
+    return percy;
+  }
+  return newAJ;
+}
 
 /* ======= TESTS - DO NOT MODIFY ===== */
 

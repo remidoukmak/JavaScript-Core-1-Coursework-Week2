@@ -4,9 +4,11 @@
   Complete the function to test if an array is empty (has no values in it)
 
 */
-
 function isEmpty(arr) {
-  return; // complete this statement
+  if (arr.length === 0) {
+    return true;
+  }
+  return false; // complete this statement
 }
 
 /* 
